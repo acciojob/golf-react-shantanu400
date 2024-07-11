@@ -18,7 +18,7 @@ class App extends Component {
     buttonClickHandler() {
     this.setState({renderBall:true});
     console.log("inbtnclickhandle",this.state.renderBall);
-    this.renderBallOrButton();
+    //this.renderBallOrButton();
    }
 
    
@@ -39,15 +39,14 @@ class App extends Component {
     componentWillUnmount() {
         document.removeEventListener('keydown', this.handlekeyDown);
     }
-  handlekeyDown(e){
-    
-        if(e.keyCode===39){
+    handlekeyDown(e) {
+        if(e.keyCode === 39) {
             console.log("rightarrow pressed");
-        this.setState(prevState=>{
-            {ballPosition:{left:`${parseInt(prevState.ballPosition.left)+5}px`}}})
-        
-}
-  }
+            this.setState(prevState => ({
+                ballPosition: { left: `${parseInt(prevState.ballPosition.left) + 5}px` }
+            }));
+        }
+    }
 
    // const [state,setState]=useState({renderball:false,pos:0});
     render() {
